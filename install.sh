@@ -22,8 +22,8 @@ openssl genrsa 4096 | tee /config/letsencrypt/domain.key
 openssl req -new -sha256 -key /config/letsencrypt/domain.key -subj "/CN=$fqdn" | tee /config/letsencrypt/domain.csr
 
 # Making lighttpd configurations and restarting daemon
-mkdir /config/lighttpd/
-curl -o /config/lighttpd/lighttpd.conf https://raw.githubusercontent.com/binarygeek119/ubnt-letsencrypt/master/lighttpd.conf
+#mkdir /config/lighttpd/
+#curl -o /config/lighttpd/lighttpd.conf https://raw.githubusercontent.com/binarygeek119/ubnt-letsencrypt/master/lighttpd.conf
 ln -sf /config/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf
 # At the first run, lighttpd should use the ubnt default server.pem.
 ps -e | grep lighttpd | awk '{print $1;}' | xargs -r kill
